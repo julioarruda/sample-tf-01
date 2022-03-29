@@ -8,8 +8,15 @@ terraform {
       version = "~>2.0"
     }
   }
+    backend "azurerm" {
+        resource_group_name  = "demovideo"
+        storage_account_name = "storeageterraform"
+        container_name       = "tfstate"
+        key                  = "terraform.tfstate"
+    }  
 }
 
 provider "azurerm" {
   features {}
 }
+
